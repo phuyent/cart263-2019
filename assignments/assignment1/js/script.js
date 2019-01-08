@@ -29,7 +29,10 @@ let food = {
   x: 0,
   y: 0,
   size: 64,
-  color: '#55cccc'
+  color: '#55cccc',
+  vx: 0,
+  vy: 0,
+  maxSpeed: 30
 }
 
 // preload()
