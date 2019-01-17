@@ -13,6 +13,7 @@ to overlap another circle (food) in order to grow bigger.
 // Constants defining key quantities
 const AVATAR_SIZE_GAIN = 50;
 const AVATAR_SIZE_LOSS = 1;
+const FOOD_MAX_SPEED = 30;
 
 // Avatar is an object defined by its properties
 let avatar = {
@@ -32,7 +33,7 @@ let food = {
   color: '#55cccc',
   vx: 0,
   vy: 0,
-  maxSpeed: 30
+  maxSpeed: FOOD_MAX_SPEED
 }
 
 // preload()
@@ -70,6 +71,7 @@ function draw() {
   // Otherwise we handle the game
   background(0);
   updateAvatar();
+  updateFood();
   checkCollision();
   displayAvatar();
   displayFood();
@@ -88,6 +90,24 @@ function updateAvatar() {
   if (avatar.size === 0) {
     avatar.active = false;
   }
+}
+
+//updateFood()
+//
+//Keep track of the food's position based on its velocity
+//Make sure it stays on the canvas
+//Changes the food's velocity randomly based on its maximum speed from time to time
+function updateFood() {
+  //Food's position based on velocity
+  food.x += food.vx;
+  food.y += food.vy;
+  //Contrain the food x & y position to be on screen
+  food.x = constrain(food.x,0,windowWidth-food.size);
+  food.y = constrain(food.y,0,windowHeight-food.size);
+  //Change the food's velocity randomly after 20 seconds
+  setTimeout(food.vx = random(-30,food.maxSpeed),20000);
+  setTimeout(food.vy = random(-30,food.maxSpeed),20000);
+
 }
 
 // checkCollision()
