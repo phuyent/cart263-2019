@@ -13,7 +13,13 @@ to overlap another circle (food) in order to grow bigger.
 // Constants defining key quantities
 const AVATAR_SIZE_GAIN = 50;
 const AVATAR_SIZE_LOSS = 1;
+<<<<<<< HEAD
 const FOOD_MAX_SPEED = 50;
+=======
+////NEW CODE: Set a permanent max speed////
+const FOOD_MAX_SPEED = 30;
+////END NEW CODE////
+>>>>>>> 6603504d32aa1af2bdb0518ad7f116b6577f9c6b
 
 // Avatar is an object defined by its properties
 let avatar = {
@@ -31,19 +37,15 @@ let food = {
   y: 0,
   size: 64,
   color: '#55cccc',
+  ////NEW CODE: Set new properies for food////
   vx: 0,
   vy: 0,
   maxSpeed: FOOD_MAX_SPEED
+<<<<<<< HEAD
+=======
+  ////END NEW CODE////
+>>>>>>> 6603504d32aa1af2bdb0518ad7f116b6577f9c6b
 }
-
-// preload()
-//
-// Not needed
-
-function preload() {
-
-}
-
 
 // setup()
 //
@@ -71,7 +73,13 @@ function draw() {
   // Otherwise we handle the game
   background(0);
   updateAvatar();
+<<<<<<< HEAD
   updateFood();
+=======
+  ////NEW CODE: Call updateFood()////
+  updateFood();
+  ////END NEW CODE////
+>>>>>>> 6603504d32aa1af2bdb0518ad7f116b6577f9c6b
   checkCollision();
   displayAvatar();
   displayFood();
@@ -92,6 +100,7 @@ function updateAvatar() {
   }
 }
 
+<<<<<<< HEAD
 //updateFood()
 //
 //Keep track of the food's positon based on its velocity
@@ -106,6 +115,28 @@ food.y = constrain(food.y,0,height-food.y);
 
 
 }
+=======
+////NEW CODE: Define updateFood()////
+//updateFood()
+//
+//Keep track of the food's position based on its velocity
+//Make sure it stays on the canvas
+//Changes the food's velocity randomly based on its maximum speed from time to time
+function updateFood() {
+  //Food's position based on velocity
+  food.x += food.vx;
+  food.y += food.vy;
+  //Contrain the food x & y position to be on screen
+  food.x = constrain(food.x,0,windowWidth-food.size);
+  food.y = constrain(food.y,0,windowHeight-food.size);
+  //Change the food's velocity randomly after 20 seconds
+  setTimeout(food.vx = random(-30,food.maxSpeed),20000);
+  setTimeout(food.vy = random(-30,food.maxSpeed),20000);
+
+}
+////END NEW CODE////
+
+>>>>>>> 6603504d32aa1af2bdb0518ad7f116b6577f9c6b
 
 // checkCollision()
 //
@@ -152,4 +183,8 @@ function displayFood() {
 function positionFood() {
   food.x = random(0,width);
   food.y = random(0,height);
+  ////NEW CODE: Set a random velocity for food based on iits max speed////
+  food.vx = random(-food.maxSpeed, food.maxSpeed);
+  food.vy = random(-food.maxSpeed, food.maxSpeed);
+  ////END NEW CODE////
 }
