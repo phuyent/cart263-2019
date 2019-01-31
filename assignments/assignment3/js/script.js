@@ -1,21 +1,23 @@
 "use strict";
 
 /*****************
-
 Raving Redactionist
 Pippin Barr
 
 You are redacting a document, but it keeps coming unredacted!
 Click the secret information to hide it, don't let all the
 secrets become revealed!
-
 ******************/
 
+//NEW CODE PART 4: Add a new variable to count the found secrets
+let countSecrets;
+//END NEW CODE PART 4
 // A place to store the jQuery selection of all spans
 let $spans;
 
 // When the document is loaded we call the setup function
 $(document).ready(setup);
+
 
 // setup()
 //
@@ -27,6 +29,10 @@ function setup() {
   $spans.on('click',spanClicked);
   // Set an interval of 500 milliseconds to update the state of the page
   setInterval(update,500);
+  //NEW CODE PART 4: Add an event for "mouseover" using on()
+  let $secret = $('secret');
+  $secret.on('mouseover',secretMouseOver);
+  //END NEW CODE PART 4
 };
 
 // spanClicked()
@@ -59,24 +65,3 @@ function updateSpan() {
     $(this).addClass('revealed');
   }
 }
-
-// A version using anonymous functions:
-
-// $(document).ready(function () {
-//   $spans = $('span');
-//
-//   $spans.on('click',function () {
-//     $(this).removeClass('revealed');
-//     $(this).addClass('redacted');
-//   });
-//
-//   setInterval(function () {
-//     $spans.each(function () {
-//       let r = Math.random();
-//       if (r < 0.1) {
-//         $(this).removeClass('redacted');
-//         $(this).addClass('revealed');
-//       }
-//     });
-//   },500);
-// });
