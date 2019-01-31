@@ -65,3 +65,12 @@ function updateSpan() {
     $(this).addClass('revealed');
   }
 }
+
+//NEW CODE PART 5
+//secretMouseOver()
+//
+//When the mouse goes over a hidden secret, the secret words will be highlighted
+function secretMouseOver() {
+  $(this).addClass('found');
+  $(this).off('mouseover');
+}
