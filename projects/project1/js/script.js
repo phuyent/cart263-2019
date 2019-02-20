@@ -32,12 +32,20 @@ $(document).ready(setup);
 //Using jQuery UI to drag the stones
 function setup() {
 
-  $plusStone = $('#plusStone');
-  $plusStone.draggable();
 
-  $minusStone = $('#minusStone');
-  $minusStone.draggable();
+  randomPosition();
 
+  //Make plusStone draagable using jQuery UI
+  $plusStone = $('.plusStone');
+  //Prevent the stone from scrolling the window
+  $plusStone.draggable({scroll: false});
+
+  //Make minusStone draagable using jQuery UI
+  $minusStone = $('.minusStone');
+  //Prevent the stone from scrolling the window
+  $minusStone.draggable({scroll: false});
+
+  //Make stone droppable using jQuery UI
   $stone = $('#stone');
   $stone.droppable({
     drop: stoneDropped
@@ -45,10 +53,19 @@ function setup() {
 
 }
 
+//randomPosition()
+//
+//Give the images random positions
+ function randomPosition(){
+  $('.minusStone').offset({top:Math.random(), left:Math.random()});
+  $('.plusStone').offset({top:Math.random(), left:Math.random()});
+ }
+
 //drop()
 //
 //Using jQuery UI to drop the stones to the rock
 function stoneDropped (event,ui) {
   ui.draggable.remove();
   $(this).attr('src','assets/images/grey.png');
+
 }

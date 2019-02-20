@@ -4,21 +4,36 @@
   <meta charset="utf-8">
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
 
+
   <style>
+  /***I looked up online and this is how to set up images if I used jQuery***/
+  /***Set background image to cover the whole window***/
   body  {
     background-image: url("assets/images/bg.jpg");
+    /***The image is throughout the screen***/
     background-repeat: no-repeat;
+    /*** Resize image to cover the entire window,
+    even if it has to stretch the image or cut a little bit off one of the edges***/
     background-size: cover;
+    /***The image is continuous even if we scroll down***/
     background-attachment: fixed;
+    /***The starting position of the image is the center***/
     background-position: center;
   }
 
+  .plusStone{
+    /***Set stone to a specific size***/
+    width: 150px;
+  }
+  .minusStone{
+    /***Set stone to a specific size***/
+    width: 150px;
+  }
+
   #stone {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;
-}
+    /***Set stone to a specific size***/
+    width: 200px;
+  }
   </style>
 
   <!-- CSS stylesheet(s) -->
@@ -43,10 +58,26 @@
 <body>
   <!-- HTML would go here if needed. -->
   <img id= "stone" src="assets/images/grey.png">
-  <img id= "plusStone" src="assets/images/red.png">
-  <img id= "minusStone" src="assets/images/blue.png">
+  <img class= "plusStone" src="assets/images/red.png">
+    <img class= "plusStone" src="assets/images/red.png">
+      <img class= "plusStone" src="assets/images/red.png">
+        <img class= "plusStone" src="assets/images/red.png">
+          <img class= "plusStone" src="assets/images/red.png">
+            <img class= "plusStone" src="assets/images/red.png">
+              <img class= "plusStone" src="assets/images/red.png">
+                <img class= "plusStone" src="assets/images/red.png">
+  <img class= "minusStone" src="assets/images/blue.png">
+    <img class= "minusStone" src="assets/images/blue.png">
+      <img class= "minusStone" src="assets/images/blue.png">
+        <img class= "minusStone" src="assets/images/blue.png">
+          <img class= "minusStone" src="assets/images/blue.png">
+            <img class= "minusStone" src="assets/images/blue.png">
+              <img class= "minusStone" src="assets/images/blue.png">
+                <img class= "minusStone" src="assets/images/blue.png">
 
   <script>
+/***Set stone to be in the center using jQuery***/
+$( '#stone' ).offset({ top: 520, left: 700});
 
   </script>
 
