@@ -55,6 +55,13 @@ function gotData(data) {
   // Same again for room
   let room = getRandomElement(data.rooms);
 
+  // New one for the pastries
+  let pastry = getRandomElement(data.pastries);
+
+  //Another new one for the fruits
+  let fruit = getRandomElement(data.fruits);
+  
+
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
   // values we've just calculated
