@@ -22,7 +22,6 @@ let $minusStone;
 let $bg;
 
 
-
 //The program will run when the function is ready
 $(document).ready(setup);
 
@@ -32,7 +31,7 @@ $(document).ready(setup);
 //Using jQuery UI to drag the stones
 function setup() {
 
-
+  //Set up a function to control random coordinates
   randomPosition();
 
   //Make plusStone draagable using jQuery UI
@@ -57,9 +56,18 @@ function setup() {
 //
 //Give the images random positions
  function randomPosition(){
-  $('.minusStone').offset({top:Math.random(), left:Math.random()});
-  $('.plusStone').offset({top:Math.random(), left:Math.random()});
- }
+   $('plusStone').offset({
+   top: Math.random(),
+   left: Math.random()
+ });
+
+ $('minusStone').offset({
+  top: Math.random(),
+  left: Math.random()
+});
+
+}
+
 
 //drop()
 //
