@@ -10,3 +10,11 @@ body {
   padding: 0;
   margin: 0;
 }
+/**Style the text**/
+#Click-to-begin {
+  font-size: 200px;
+  font-weight: bold;
+  text-align: center;
+  color: orange;
+  text-decoration: underline;
+}

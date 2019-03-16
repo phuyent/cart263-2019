@@ -1,37 +1,28 @@
+
 "use strict";
 
 /*****************
+Project 2: Something's wrong on the Internet
+Huyen Tran Pham
 
-Title of Project
-Author Name
-
-This is a template. You must fill in the title,
-author, and this description to match your project!
-
+Basically, this is a game about unwrapping many layers of a present.
+However, inside there's nothing because the focus is mostly about the process of
+opening the outside.
 ******************/
 
-// preload()
-//
-// Description of preload
-
-function preload() {
-
-}
-
+//The program will run when the function is ready
+$(document).ready(setup);
 
 // setup()
 //
-// Description of setup
-
+// setup involves clicking once to actually start the game.
 function setup() {
-
+   $('#Click-to-begin').on('click',startGame);
 }
 
-
-// draw()
+//startGame()
 //
-// Description of draw()
-
-function draw() {
-
+//When the game starts, the text is removed
+function startGame() {
+   $('#Click-to-begin').remove();
 }
