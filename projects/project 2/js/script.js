@@ -13,18 +13,29 @@ opening the outside.
 //The program will run when the function is ready
 $(document).ready(setup);
 
+//A variable for the background music
+let bgMusic;
+
+//preload()
+//
+//Load the music before the program runs
+function preload() {
+  bgMusic = new Audio('assets/sounds/music.mp3');
+}
 // setup()
 //
 // setup involves clicking once to actually start the game.
 function setup() {
   $('#Click-to-begin').on('click',startGame);
-
+  //Play music throughout the game
+bgMusic.play();
 }
 //startGame()
 //
 //When the game starts, the text is removed
 function startGame() {
   $('#Click-to-begin').remove();
+
 
   theGame();
 }
