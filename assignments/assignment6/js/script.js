@@ -80,6 +80,12 @@ pastry.charAt(0) === 'o' || pastry.charAt(0) === 'u') {
 
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
+
+  // Reload when click on the page
+  $(document).click(function() {
+    location.reload();
+  })
+
 }
 
 // getRandomElement ()
