@@ -107,8 +107,16 @@ function playNote() {
   let frequency = frequencies[Math.floor(Math.random() * frequencies.length)];
   // Set the synth's frequency
   synth.frequency = frequency;
+  let rest = Math.random();
+  //Pause the music
+  if (rest > 0.6 ){
+    synth.play();
+  }
+  else {
+    synth.stop();
+  }
   // If it's note already play, play the synth
-  synth.play();
+  //synth.play();
 }
 
 // playDrum()
