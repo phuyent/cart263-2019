@@ -19,6 +19,8 @@ const ATTACK = 0.1;
 // Release time for a note (in seconds)
 const RELEASE = 0.1;
 
+let startPlay = true;
+
 // We need an array of the possible notes to play as frequencies (in Hz)
 // A Major =  A, B, C♯, D, E, F♯, and G♯
 // We can get the frequencies of these notes from THE INTERNET, e.g.
@@ -78,18 +80,24 @@ function setup() {
       path: 'assets/sounds/hihat.wav'
     }
   });
+
 }
 
-// mousePressed
+// mousePressed()
 //
 // Using this to start the note and drum sequences to get around
 // user interaction (and to give the files time to load)
 function mousePressed() {
-  // Start an interval for the notes
-  setInterval(playNote,NOTE_TEMPO);
-  // Start an interval for the drums
-  setInterval(playDrum,DRUM_TEMPO);
+  if (startPlay) {
+    // Start an interval for the notes
+    setInterval(playNote,NOTE_TEMPO);
+    // Start an interval for the drums
+    setInterval(playDrum,DRUM_TEMPO);
+    startPlay = false;
+  }
+
 }
+
 
 // playNote
 //
